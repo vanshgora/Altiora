@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALTIORA</title>
 </head>
+
 <body>
-    <Button id="start-btn" onclick="play()">Start</Button>
+    <div id="start-mode">
+        <Button id="start-btn" onclick="play()">Start</Button>
+    </div>
+
+    <div id='play-mode' style="display:none;">
+        <div id="level-display">Level:- 1</div>
+        <div id="xp-nav">
+            <div id="hero-xp"></div>
+            <div id="enemy-xp"></div>
+        </div>
+        <ul id="hero-attack-list" class="attack-list">
+
+        </ul>
+        <div id="event-screen"></div>
+    </div>
+
+    <div id="restart-mode" style="display:none;">
+        <Button id="restart-btn" onclick="restart()">Restart</Button>
+    </div>
 </body>
 <script src="index.js"></script>
+
 </html>
