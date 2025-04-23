@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Start Mode Styles */
+#start-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #1a1a2e; /* Changed to match body background color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+#start-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #e94560; /* Changed to match game theme */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(233, 69, 96, 0.5);
+}
+
+#start-btn:hover {
+    background-color: #d63852; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#start-btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.5); /* Add custom focus outline */
+}
+
+/* Restart Mode Styles */
+#restart-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(26, 26, 46, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 300;
+    flex-direction: column;
+}
+
+#restart-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4caf50; /* Green for restart */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#restart-btn:hover {
+    background-color: #388e3c; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+#restart-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+/* Play Mode Styles */
+#play-mode {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#level-display {
+    background-color: #0f3460;
+    color: #e94560;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#xp-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#hero-xp, #enemy-xp {
+    flex: 1;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#hero-xp {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#enemy-xp {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.attack-list {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+#hero-attack-list li {
+    background-color: #533483;
+    margin: 10px 0;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#hero-attack-list li button {
+  background: 'none';
+  border: 'none';
+  outline: 'none';
+  width: 100%;
+  height: 100%;
+}
+
+#hero-attack-list li:hover {
+    background-color: #e94560;
+    transform: translateY(-3px);
+}
+
+#event-screen {
+    min-height: 150px;
+    background-color: rgba(15, 52, 96, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#instruction-list {
+    list-style-type: none;
+    background-color: #0f3460;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#instruction-list li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+#instruction-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #e94560;
+}
+
+/* Initial Timer Overlay */
+#initial-timer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8rem;
+    color: #e94560;
+    z-index: 100;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(233, 69, 96, 0.8);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Additional Responsive Styles */
+@media (max-width: 600px) {
+    #level-display {
+        font-size: 1.2rem;
+    }
+    
+    #initial-timer {
+        font-size: 5rem;
+    }
+    
+    #hero-attack-list li {
+        padding: 10px 15px;
+    }
+    
+    #start-btn, #restart-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
